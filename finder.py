@@ -44,7 +44,7 @@ try:
 
         if balance > 0:
             print(
-                f"Found an address with a balance! Address: {address}, Balance: {balance}, Private Key: {private_key_hex}")
+                f"Found an address with a balance! Address : {address}, Balance: {balance}, Private Key: {private_key_hex}")
 
         if count % 10 == 0:
             timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
