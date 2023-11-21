@@ -51,10 +51,10 @@ try:
             print(f"{count} addresses checked at {timestamp}")
 
         # Stop if 'esc' key is pressed
-        if keyboard.is_pressed('esc'):
-            timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-            print(f"Stopping at {timestamp}, after checking {count} addresses.")
-            break
+        # if keyboard.is_pressed(''):
+        #     timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+        #     print(f"Stopping at {timestamp}, after checking {count} addresses.")
+        #     break
 
         time.sleep(0.01)  # Small delay to not overwhelm the CPU
 except KeyboardInterrupt:
