@@ -13,7 +13,7 @@ def keccak256(data):
     return k_hash.hexdigest()
 
 
-def generate_ethereum_address():
+def generate_ethereum_address():0xED44e4F02904a28a7A28E05dF78BeE02626435D1
     private_key = ecdsa.SigningKey.generate(curve=ecdsa.SECP256k1)
     private_key_hex = private_key.to_string().hex()
 
