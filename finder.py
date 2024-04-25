@@ -1,10 +1,11 @@
+# ed4c8673284446f4a4c24137e4b60a74
 from web3 import Web3
 from Crypto.Hash import keccak
 import ecdsa
 import time
-import keyboard  # Using keyboard to detect key press to stop the program
+import winsound
 
-w3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/cc3faa47b8dc4c26ae1ad24898dc47ba'))
+w3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/ed4c8673284446f4a4c24137e4b60a74'))
 
 
 def keccak256(data):
@@ -36,7 +37,15 @@ def check_balance(address):
 
 # The main loop
 try:
+    winsound.Beep(frequency=400, duration=1000)
+    print('start')
     count = 0
+
+    private_key_hex, address = generate_ethereum_address()
+    balance = check_balance(address)
+    print(
+        f"First Checking Address : {address}, Balance: {balance}, Private Key: {private_key_hex}")
+
     while True:
         count += 1
         private_key_hex, address = generate_ethereum_address()
@@ -45,16 +54,11 @@ try:
         if balance > 0:
             print(
                 f"Found an address with a balance! Address : {address}, Balance: {balance}, Private Key: {private_key_hex}")
+            winsound.Beep(frequency=400,duration=1000)
 
-        if count % 10 == 0:
+        if count % 100 == 0:
             timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
             print(f"{count} addresses checked at {timestamp}")
-
-        # Stop if 'esc' key is pressed
-        # if keyboard.is_pressed(''):
-        #     timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-        #     print(f"Stopping at {timestamp}, after checking {count} addresses.")
-        #     break
 
         time.sleep(0.01)  # Small delay to not overwhelm the CPU
 except KeyboardInterrupt:
